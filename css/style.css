@@ -1,0 +1,798 @@
+*, {
+    margin: 0;
+    padding 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    align-content: center;
+    align-items: center;
+    background-size: cover;
+    
+}
+
+.container-fluid {
+    padding: 0 0 0 0 !important;
+}
+
+#canvas {
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 50px;
+}
+
+#galeria-bg {
+    background-color: black !important;
+}
+
+
+/* CSS MENU NAV */
+
+header {
+    width: 100%;
+    height: 7.5vh;
+    background-size: cover;
+}
+
+.content {
+    width: 90%;
+    margin: 4em auto;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.logo {
+    position: fixed;
+    float: left;
+    margin: 16px 36px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    z-index: 1000;
+    
+}
+
+.logo a {
+    color: white;
+    transition: 1s;
+}
+
+.logo a:hover {
+    color: #FFD700;
+    transition: 1s;
+    text-decoration: none;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    background: black;
+    overflow: hidden;
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    transition: 1s;
+    
+}
+
+nav.black ul {
+    background: #000;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 20px; 
+}
+
+nav ul li {
+    
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: 1s;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+    color: #FFD700;
+    transition: 1s;
+}
+
+nav ul li a:active {
+    color: #FFD700;
+}
+.menu-icon {
+    width: 100%;
+    background: #000;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+
+@media(max-width: 780px) { 
+    .logo {
+        position: fixed;
+        top: 0;
+        margin-top: 16px;
+    }
+    
+    nav {
+        z-index: 1000;
+    }
+    
+    nav ul {
+        max-height: 0px;
+        background: #000;
+    }
+    
+    nav.black ul {
+        background: #000;
+    }
+    
+    .showing {
+        max-height: 20em;
+    }
+    
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px 0;
+        text-align: center;
+            
+    }
+    
+    .menu-icon {
+        display: block;
+    }
+    
+}
+
+/* FIM CSS MENU NAV */
+
+/* CSS VIDEO PLAYER */
+.player {
+  border:5px solid rgba(0,0,0,0.2);
+  box-shadow:0 0 20px rgba(0,0,0,0.2);
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+
+/* This css is only applied when fullscreen is active. */
+.player:fullscreen {
+  max-width: none;
+  width: 100%;
+}
+
+.player:-webkit-full-screen {
+  max-width: none;
+  width: 100%;
+}
+
+.player__video {
+  width: 100%;
+}
+
+.player__button {
+  background:none;
+  border:0;
+  line-height:1;
+  color:white;
+  text-align: center;
+  outline:0;
+  padding: 0;
+  cursor:pointer;
+  max-width:50px;
+}
+
+.player__button:focus {
+  border-color: #ffc600;
+}
+
+.player__slider {
+  width:10px;
+  height:30px;
+}
+
+.player__controls {
+  display:flex;
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  transform: translateY(100%) translateY(-5px);
+  transition:all .3s;
+  flex-wrap:wrap;
+  background:rgba(0,0,0,0.1);
+}
+
+.player:hover .player__controls {
+  transform: translateY(0);
+}
+
+.player:hover .progress {
+  height:15px;
+}
+
+.player__controls > * {
+  flex:1;
+}
+
+.progress {
+  flex:10;
+  position: relative;
+  display:flex;
+  flex-basis:100%;
+  height:5px;
+  transition:height 0.3s;
+  background:rgba(0,0,0,0.5);
+  cursor:pointer;
+}
+
+.progress__filled {
+  width:50%;
+  background:#ffc600;
+  flex:0;
+  flex-basis:50%;
+}
+
+/* unholy css to style input type="range" */
+
+input[type=range] {
+  -webkit-appearance: none;
+  background:transparent;
+  width: 100%;
+  margin: 0 5px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: rgba(255,255,255,0.8);
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #ffc600;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.5px;
+  box-shadow:0 0 2px rgba(0,0,0,0.2);
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #bada55;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: #ffffff;
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #ffc600;
+  cursor: pointer;
+}
+
+/* CSS CONTEUDO */
+
+.body-content {
+    width: 100%;
+    height: 80vh;
+    background: url(../img/content-background.png) no-repeat 50% 50%;
+    background-size: auto;
+    display: table;
+    height: 65%;
+}
+
+.content {
+    position: absolute;
+    top: 40%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+}
+
+.content h1 {
+    color: #fff;
+    font-weight: 200;
+    font-size: 50px;
+    
+}
+
+.header-nav img {
+    margin-bottom: 1rem;
+}
+
+.header-nav-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: .05rem;
+    color: #DCDCDC;
+    font-weight: bold;
+    
+}
+
+.header-nav-subtitle .negrito {
+    font-weight: bold;
+    color: #ffc600;
+    text-decoration: underline;
+}
+
+.nav-color {
+    color: #FFD700 !important;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+}
+
+.is-active {
+    color: white;
+}
+
+.jumbotron-color {
+    background-color: black !important;
+}
+
+/* CSS VIDEO */
+.player {
+  border:5px solid rgba(0,0,0,0.2);
+  box-shadow:0 0 20px rgba(0,0,0,0.2);
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+
+/* FIM CSS VIDEO */
+
+/* CSS INFO EMPRESA */
+
+.info-emp{
+    width: 50%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.info-img {
+    width: 10%;
+    height: 5%;
+    margin: 15px 25%;
+}
+    
+.info-section h2 {
+    color: white;
+}
+
+.info-section p {
+    font-size: 16px;
+    color: white;
+    letter-spacing: 2.5px;
+    padding: 15px;
+    z-index: 2;
+    
+}
+
+.info-section hr {
+    background-color: #967128;
+}
+
+.border-texto {
+    border-right: 1px solid #967128;
+    border-left: 1px solid #967128;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .info-emp {
+        display: none;
+    }
+}
+
+/* PARALLAX */
+hr {
+    background-color: #967128;
+}
+#box-servicos {
+    height: 40vh;
+    width: 100%;
+    display: table;
+    background-attachment: fixed;
+    background-image: url(../img/servicos-perso.jpg);
+    background-color: #080808;
+}
+
+#box-servicos b {
+    color: white;
+}
+
+#box-form {
+    height: 60vh;
+    width: 100%;
+    background-image: url(../img/contatoIMG.jpg);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+    position: relative;
+}
+
+@media (max-width: 4000px) {
+    #box-form {
+        height: 60vh;
+        width: 100%;
+        background-image: url(../img/contatoIMG.jpg);
+        background-size: cover;
+        display: table;
+        background-attachment: fixed;
+        position: relative;
+    }
+    
+    .textura-form {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color:  rgba(0,0,0,0.5);
+    }
+}
+    
+.textura-form{
+    position: absolute;
+    width: 100%;
+    background-color:  rgba(0,0,0,0.5);
+}
+
+
+#box-imagem {
+    height: 60vh;
+    width: 100%;
+    background-image: url(../img/imagem-bg.jpg);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#box-imagem .b-sublinhado {
+    text-decoration: underline;
+}
+
+#box-imagem h2 {
+    font-size: 35px;
+    font-weight: 800;
+    color: white;
+    margin: 0px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#box-header {
+    height: 80vh;
+    width: 100%;
+    background-image: url(../img/header-img.jpg);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+}
+
+#box h2 {
+    font-size: 35px;
+    font-weight: 800;
+    color: white;
+    margin: 0px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#box2 a:hover {
+    color: #967128;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+/* FIM PARALLAX */
+
+/* SERVIÇOS CSS */
+
+.service-box {
+    text-align: center;
+    padding: 60px 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+
+.service-box:hover {
+    background: #DAA520;
+}
+
+.service-box:before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border-width: 20px;
+    border-style: solid;
+    border-color: white white rgba(1,1,1,0.2) rgba(0,0,0,0.2);
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    transition: all 0.3s ease 0s;
+}
+
+.service-box:hover:before {
+    top: 0;
+    right: 0;
+}
+
+.service-box i {
+    display: block;
+    font-size: 65px;
+    color: #DAA520;
+    margin-bottom: 14px;
+    transition: all 0.3s ease 0s;
+}
+
+.service-box .title {
+    font-size: 18px;
+    font-weight: 900;
+    color: white;
+    line-height: 25px;
+    text-transform: capitalize;
+    margin:0 0 16px 0;
+    transition: all 0.3s ease 0s;
+}
+
+.service-box .description {
+    font-size: 15px;
+    color: white;
+    line-height: 25px;
+    margin: 0;
+    transition: all 0.3s ease 0s;
+    
+}
+
+.service-box:hover i,
+.service-box:hover .title,
+.service-box:hover .description {
+    color:white;
+
+}
+
+/* FIM SERVIÇOS CSS */
+
+/* CSS FORMULÁRIO */
+.form-row
+::-webkit-input-placeholder {
+   color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;  
+}
+
+:-ms-input-placeholder {  
+   color: white;  
+}
+
+input {
+    color: white;
+}
+
+.form-control {
+    color: white;
+    
+}
+
+.border {
+    border-color: #967128;
+}
+
+.estilo-font-awesome {
+    font-size: 25px;
+}
+
+@media (max-width: 575px) {
+    .esconder {
+        display: none;
+    }
+}
+
+.tamanho-texto {
+    font-size: 16px;
+}
+/* FOOTER CSS */
+
+#footer-container {
+    max-width: 1000px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 2%;
+    text-align: center;
+}
+
+.social {
+    list-style-type: none;
+}
+
+@media(max-width: 575px) {
+    .mobile-contato{
+        position: relative;
+    }
+    .social {
+        display: inline-grid;
+        position: absolute;
+        right: 1em;
+    }
+}
+
+.social li a {
+    font-size: 24px;
+    display: inline;
+    float: right;
+    color: white;
+    text-decoration: none;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+
+.social li a:hover {
+    color: #efc466;
+}
+
+.copyright-text {
+    text-transform: uppercase;
+    width: 50%;
+    color: white;
+}
+
+
+/* CSS GALERIA.HTML */
+.row {
+  margin: 15px;
+}
+
+.img-thumbnail {
+    border-style: none !important;
+}
+
+.img-size {
+    width: 100%;
+    height: 100%;
+}
+
+.container-img {
+    max-height: 90%;
+}
+
+@media (max-width: 1240px) {
+    .img-size {
+        width: 100%;
+        max-height: 100%;
+       
+    }
+}
+
+/*SVG CSS*/
+.animate-svg {
+        width: 800px;
+        margin: 400px auto;
+}
+    
+.animate-svg svg {
+    stroke-width: 2px;
+    stroke: #FFD700;
+    width: 100%;
+    height: 100%;
+    stroke-dashoffset: 1000;
+    stroke-dasharray: 1000;
+    animation: svganimation 8s ease-in-out forwards
+}
+        
+@keyframes svganimation {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+0% { opacity: 0; }
+100% { opacity: 1; } 
+}
+@-moz-keyframes fadeIn {
+0% { opacity: 0;}
+100% { opacity: 1; }
+}
+@-o-keyframes fadeIn {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+@keyframes fadeIn {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+
+.fadeIn {
+-webkit-animation: fadeIn 1s ease-in-out;
+-moz-animation: fadeIn 1s ease-in-out;
+-o-animation: fadeIn 1s ease-in-out;
+animation: fadeIn 1s ease-in-out;
+background-color: black;
+}
+
+/* CSS PÁGINA CONTATO */
+.margem-contato {
+    margin-top: 12%;
+}
+
+.textura-form-contato {
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(0,0,0,0.7);
+}
+
+.textura-form-contato .row {
+    margin: 0 auto;
+}
+
+#box-imagem-contato {
+    height: 60vh;
+    width: 100%;
+    background-image: url(../img/contato-bg.jpg);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#box-imagem-contato .container {
+    padding-bottom: 100px !important;
+}
+/* FIM CSS PAGINA CONTATO */
